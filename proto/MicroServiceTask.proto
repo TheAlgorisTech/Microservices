@@ -1,0 +1,66 @@
+syntax= "proto3";
+
+
+package MicroSerice;
+
+// The server hosts a gRPC that offers three remote methods
+// login, hello, logout
+
+// Client will send LoginRequest 
+// LoginRequest custom message;
+// Client Username & Password
+message LoginRequest {
+        string username = 1;
+        string password = 2;
+}
+
+// LoginResponse custom message;
+// HTTP (200 or 403 port) & generated token (can take null value)
+message LoginResponse {
+        int32 http_port = 1;
+        string token = 2;
+}
+
+
+
+message NoType {}
+
+// NoType custom message
+message GreetingResponse {
+        string greet = 1;
+}
+
+// Api Service
+service ApiService {
+        // rpc login method
+        // Request Login User & Response LoginUser
+        rpc login (LoginRequest) returns (LoginResponse){};
+        rpc hello (NoType) returns (GreetingResponse){};
+}
+
+
+// Authenticate Service
+service AuthService {
+        // Check User Password Authentication
+        rpc authenticate (LoginRequest) returns (AuthenticationToken){}; // Expose ApiServicer
+        rpc validate (AuthenticationToken) returns (VerifiedUser){};
+}
+
+
+// AuthenticationToken custome message;
+// HTTP (200 or 403 port) & generated token (can take null value)
+message AuthenticationToken {
+        int32 http_port = 2;
+        string token = 1;
+}
+
+// VerifiedUser custom message;
+// verifuser (empty if user token is unvalid)
+message VerifiedUser {
+        string verifuser = 1;
+}
+
+
+service HelloService {
+        rpc SayHello (VerifiedUser) returns (GreetingResponse) {};
+}
