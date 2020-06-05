@@ -1,4 +1,8 @@
-# Microservice-Based System
+# Microservice-Based Systems
+
+## Examples
+1. [Login Logout Services](https://github.com/Fayssal404/Microservices/tree/master/login-logout)
+
 
 ### G-RPC
 - Let clients get information about features on their route
@@ -10,10 +14,12 @@
 - Messages are much smaller than HTTP-based (RESTFul Service)
 - Protocol Buffers is the interface definition language (IDL) used in __G-RPC__
 
+<!---
 [//]:(generating server skeleton & client stub)
 [//]:(implementing a service business logic)
 [//]:(running grpc server with the implemented service)
 [//]:(invoking the service through the GRPC client Application)
+--->
 
 ### G-RPC Service Interface
 - Allow *Clients* to call remotely, methods parameters & message formats to use, when invoking methods
@@ -48,14 +54,3 @@ For each service in the .proto, three elements are generated:
 	- POST : used to send data to the server using HTML forms
 - "route" only anwser for 'GET' requests
 
-
-
-
-# Implementations
-## A. Logins Routs
-Login usee both HTTP methods 'Get' & 'Post'. 'GET' method is used to retrieve
-User information like password & username for verication, and 'POST' method.
-
-## B. Registrations Routs
-
-## C. Authentication
