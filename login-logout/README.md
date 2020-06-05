@@ -6,6 +6,7 @@ composed of 3 services:
 - HelloService
 
 ### Mircroservice Diagram
+![Alt text](https://github.com/Fayssal404/Microservices/blob/master/login-logout/screenshots/microservices-diagram.png)
 
 The system have the following:
 - It can handle logins from multiple clients
@@ -18,6 +19,7 @@ minutes
 # Architecture Overview
 Each one of these is a standalone application that respects the SR principle.
 
+![Alt text](https://github.com/Fayssal404/Microservices/blob/master/login-logout/screenshots/microservices-archi.png)
 ## 1. ApiService 
 Exposes a REST API and is the only services that is callable by the end-user. 
 The ApiService verifies that the user is authenticated and forwards the call
