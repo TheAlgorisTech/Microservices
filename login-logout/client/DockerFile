@@ -1,0 +1,13 @@
+FROM python:3
+
+WORKDIR /usr/src/ap
+
+COPY requirements.txt  ./
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY MicroServiceTask_pb2.py  ./
+COPY MicroServiceTask_pb2_grpc.py ./
+
+
+COPY ./MicroServiceTask_client.py /usr/src/ap
